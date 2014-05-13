@@ -1,5 +1,5 @@
 
-build: components
+build: components index.js
 	@component build --dev
 
 components: component.json
@@ -17,6 +17,6 @@ standalone:
 	mkdir dist
 	sed 's/this\[\"ripple-refs\"\]/this.ripple.refs/g' build/standalone.js > dist/ripple-refs.js
 	rm build/standalone.js
-	minify dist/ripple-refs.js dist/ripple-refs.min.js
+	minify dist/ripple-refs.js > dist/ripple-refs.min.js
 
 .PHONY: clean test standalone
